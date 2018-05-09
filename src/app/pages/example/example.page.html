@@ -1,0 +1,15 @@
+<div class="container">
+  <form>
+    <label>
+      Напиши число и вернется вдвое больше:
+    </label>
+    <input type="number" name="number" [(ngModel)]="form.number">
+    <input type="submit" (click)="sendNumber(form.number)">
+  </form>
+</div>
+<div class="container" *ngIf="form.number">
+  Number: {{form.number}}
+</div>
+<div class="container" *ngIf="newNumber">
+  New Number: {{newNumber}}
+</div>
