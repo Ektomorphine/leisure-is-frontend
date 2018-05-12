@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Заголовок</span>
+    <button mat-button
+            *ngIf="_genericService.isSigned"
+            class="logout-btn"
+            (click)="signOut()">
+      Выйти
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>

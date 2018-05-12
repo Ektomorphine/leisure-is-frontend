@@ -1,0 +1,15 @@
+
+{
+  "/auth/sign_in": {
+    "target": "http://localhost:3000",
+    "secure": false
+  },
+  "/auth/validate_token": {
+    "target": "http://localhost:3000",
+    "secure": false
+  },
+  "/auth/sign_out": {
+    "target": "http://localhost:3000",
+    "secure": false
+  }
+}
