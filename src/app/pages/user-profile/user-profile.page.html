@@ -1,16 +1,26 @@
 <div class="container">
   <mat-card class="example-card">
     <mat-card-header>
+      <h2>Данные профиля</h2>
+    </mat-card-header>
+    <hr>
+    <img mat-card-image src="{{currentUser.image}}" alt="Photo of a Shiba Inu">
+    <hr>
+    <mat-card-content>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>{{currentUser.nickname}}</mat-card-title>
       <mat-card-subtitle>{{currentUser.email}}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="{{currentUser.image}}" alt="Photo of a Shiba Inu">
-    <mat-card-content>
     </mat-card-content>
     <mat-card-actions>
     </mat-card-actions>
   </mat-card>
+  <hr>
 </div>
 
-{{currentUser | json}}
+
+<button
+  mat-fab
+  class="to-events-button"
+  (click)="toEventsList()">
+  <mat-icon aria-label="Example icon-button with a heart icon">class</mat-icon>
+</button>

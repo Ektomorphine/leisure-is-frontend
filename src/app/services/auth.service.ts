@@ -19,7 +19,6 @@ export class AuthService {
         .signIn(user)
         .subscribe(
           res => {
-            console.log(res);
             this._genericService.setUser(res.json().data);
             observer.next(res.json().data);
             observer.complete();

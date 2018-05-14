@@ -1,23 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
-
-import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
-import { AuthPage } from './pages/auth/auth.page';
 import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Angular2TokenService } from 'angular2-token';
+
+import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { AuthService } from './services/auth.service';
 
-
+import { AuthPage } from './pages/auth/auth.page';
 import { ExamplePage } from './pages/example/example.page';
 import { UserProfilePage } from './pages/user-profile/user-profile.page';
+import { EventsListPage } from './pages/events-list/events-list.page';
+
+import { AuthService } from './services/auth.service';
 import { GenericService } from './services/generic.service';
+import { EventsService } from './services/events.service';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { GenericService } from './services/generic.service';
     ExamplePage,
     HeaderComponent,
     UserProfilePage,
+    EventsListPage,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,7 @@ import { GenericService } from './services/generic.service';
     MaterialModule,
     HttpModule,
   ],
-  providers: [Angular2TokenService, AuthService, GenericService],
+  providers: [Angular2TokenService, AuthService, GenericService, EventsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
