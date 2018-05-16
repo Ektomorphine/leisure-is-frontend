@@ -4,40 +4,50 @@
       <mat-card>
         <mat-card-content>
           <h1>
-            Войти
+            Регистрация
           </h1>
           <mat-form-field class="full-width">
             <input
               matInput
               placeholder="Логин"
-              [(ngModel)]="user.email"
               name="email"
+              [(ngModel)]="newUser.login"
               #email>
           </mat-form-field>
+          <mat-form-field class="full-width">
+              <input
+                matInput
+                placeholder="Имя"
+                name="name"
+                [(ngModel)]="newUser.name"
+                #name>
+            </mat-form-field>
           <mat-form-field class="full-width">
             <input
               type="password"
               matInput
               placeholder="Пароль"
-              [(ngModel)]="user.password"
               name="password"
+              [(ngModel)]="newUser.password"
               #password>
           </mat-form-field>
+          <mat-form-field class="full-width">
+              <input
+                type="password"
+                matInput
+                placeholder="Подтвердите пароль"
+                name="passwordConfirmation"
+                [(ngModel)]="newUser.passwordConfirmation"
+                #passwordСonfirmation>
+            </mat-form-field>
         </mat-card-content>
         <mat-card-actions class="btn-center-alignment">
           <button
-            (click)="signIn()"
+            (click)="signUp()"
             mat-raised-button
             color="primary"
             class="button">
-            Войти
-          </button>
-          <button
-            (click)="goToSignUp()"
-            mat-raised-button
-            color="primary"
-            class="button">
-            Регистрация
+            Зарегистрироваться
           </button>
         </mat-card-actions>
       </mat-card>

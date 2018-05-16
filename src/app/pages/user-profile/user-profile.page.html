@@ -1,22 +1,40 @@
 <div class="container">
+
   <mat-card class="example-card">
     <mat-card-header>
-      <h2>Данные профиля</h2>
+      <div mat-card-avatar class="header-image">
+        <img src="https://picsum.photos/200/200"
+             alt="avatar">
+      </div>
+      <mat-card-title>{{currentUser.email}}</mat-card-title>
+      <mat-card-subtitle>{{currentUser.name}}</mat-card-subtitle>
     </mat-card-header>
-    <hr>
-    <img mat-card-image src="{{currentUser.image}}" alt="Photo of a Shiba Inu">
-    <hr>
-    <mat-card-content>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{currentUser.nickname}}</mat-card-title>
-      <mat-card-subtitle>{{currentUser.email}}</mat-card-subtitle>
-    </mat-card-content>
-    <mat-card-actions>
-    </mat-card-actions>
   </mat-card>
-  <hr>
-</div>
 
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Избранные мероприятия
+      </mat-panel-title>
+      <mat-panel-description>
+        <mat-icon>grade</mat-icon>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div *ngFor="let bookmark of bookmarks" class="bookmarks-panel">
+      <button mat-raised-button
+              color="accent"
+              class="bookmark-button"
+              [routerLink]="['/event', bookmark.id]">
+        {{bookmark.name}}
+      </button>
+      <div class="delete-icon" (click)="deleteBookmark(bookmark.id)">
+        <mat-icon>delete</mat-icon>
+      </div>
+    </div>
+  </mat-expansion-panel>
+
+</div>
 
 <button
   mat-fab

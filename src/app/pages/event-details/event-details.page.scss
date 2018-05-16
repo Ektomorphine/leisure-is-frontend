@@ -1,0 +1,48 @@
+.container {
+  display: block;
+  position: relative;
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+  top: 200px;
+}
+
+.image-container {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  top: -120px;
+}
+
+.image {
+  border-radius: 50%;
+}
+
+.event-title {
+  text-align: center;
+  position: relative;
+  top: -80px;
+}
+
+agm-map {
+  height: 300px;
+  width: 100%;
+}
+.price-and-date {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+
+.add-to-favorites-button {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
+
+.to-events-button {
+  position: fixed;
+  bottom: 4%;
+  right: 4%;
+}

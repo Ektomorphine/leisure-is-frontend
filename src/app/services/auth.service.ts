@@ -40,4 +40,19 @@ export class AuthService {
     })
   }
 
+  public signUp(user): Observable<any> {
+    return Observable.create((observer: any) => {
+      return this._tokenService.registerAccount({
+        email: user.login,
+        password: user.password,
+        passwordConfirmation: user.passwordConfirmation,
+        name: user.name
+      }).subscribe(response => {
+        console.log('reg res', response);
+        observer.next(response);
+        observer.complete();
+      })
+    })
+  }
+
 }

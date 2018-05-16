@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { EventsService } from '../../services/events.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-events-list',
@@ -12,6 +13,7 @@ export class EventsListPage implements OnInit {
 
   constructor(
     private _eventsService: EventsService,
+    private _router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -24,6 +26,10 @@ export class EventsListPage implements OnInit {
       .subscribe(response => {
         this.events = response;
     })
+  }
+
+  public openEvent(event): void {
+    this._router.navigate(['/event', event.id])
   }
 
 }

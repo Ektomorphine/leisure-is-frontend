@@ -1,6 +1,8 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>Заголовок</span>
+    <span (click)="goToProfile()" class="header-logo">
+      Информационная система досугового центра
+    </span>
     <button mat-button
             *ngIf="_genericService.isSigned"
             class="logout-btn"

@@ -1,16 +1,25 @@
 <div class="container">
   <ng-container *ngFor="let event of events">
-    <mat-card class="card">
+    <mat-card class="card" (click)="openEvent(event)">
       <div class="event-image-block">
         <img src="{{event.image}}" class="event-image">
       </div>
       <div class="description-block">
         <div class="event-name">
-          {{event.name}}
+          <h2>
+            {{event.name}}
+          </h2>
         </div>
         <div class="event-description">
           {{event.description}}
         </div>
+      </div>
+      <div>
+        <mat-chip-list class="event-type">
+          <mat-chip color="accent" selected="true" class="chip">
+            {{event.event_type}}
+          </mat-chip>
+        </mat-chip-list>
       </div>
     </mat-card>
   </ng-container>

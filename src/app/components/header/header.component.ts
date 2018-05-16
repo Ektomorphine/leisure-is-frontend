@@ -29,4 +29,8 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  public goToProfile(): void {
+    this._router.navigate(['/profile']);
+  }
+
 }

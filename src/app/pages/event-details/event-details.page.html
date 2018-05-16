@@ -1,0 +1,38 @@
+<div class="container">
+  <mat-card *ngIf="event">
+    <div class="image-container">
+      <img src="{{event.image}}" class="image">
+    </div>
+    <div class="event-title">
+      <h1>{{event.name}}</h1>
+    </div>
+    <div>
+      <h3>
+        {{event.description}}
+      </h3>
+    </div>
+    <agm-map [latitude]="lat" [longitude]="lng">
+      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
+    <div class="price-and-date">
+      <mat-chip-list>
+        <mat-chip color="primary" selected="true">{{event.price}}₽</mat-chip>
+        <mat-chip color="accent" selected="true">{{date}}</mat-chip>
+      </mat-chip-list>
+    </div>
+    <button
+      mat-fab
+      class="add-to-favorites-button"
+      (click)="addToFavorites()">
+      <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+    </button>
+  </mat-card>
+</div>
+
+<button
+  mat-fab
+  class="to-events-button"
+  (click)="toEventsList()">
+  <mat-icon aria-label="Example icon-button with a heart icon">class</mat-icon>
+</button>
+

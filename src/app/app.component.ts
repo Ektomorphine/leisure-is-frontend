@@ -9,7 +9,9 @@ import { Angular2TokenService } from 'angular2-token';
 export class AppComponent {
   constructor(private _tokenService: Angular2TokenService) {
 
-    this._tokenService.init()
+    this._tokenService.init({
+      registerAccountPath: 'http://localhost:3000/auth',
+    })
 
   }
 }
