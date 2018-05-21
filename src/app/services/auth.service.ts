@@ -13,6 +13,10 @@ export class AuthService {
     private _genericService: GenericService) {
   }
 
+  public get isSignedIn(): boolean {
+    return this._tokenService.userSignedIn();
+  }
+
   public authUser(user): Observable<ICurrentUser> {
     return Observable.create((observer: Observer<ICurrentUser>) => {
       return this._tokenService
@@ -41,12 +45,14 @@ export class AuthService {
   }
 
   public signUp(user): Observable<any> {
+    console.log(user.image)
     return Observable.create((observer: any) => {
       return this._tokenService.registerAccount({
         email: user.login,
         password: user.password,
         passwordConfirmation: user.passwordConfirmation,
-        name: user.name
+        name: user.name,
+        image: user.image,
       }).subscribe(response => {
         console.log('reg res', response);
         observer.next(response);

@@ -16,11 +16,13 @@ export class SignUpPage {
     password: '',
     passwordConfirmation: '',
     name: '',
+    image: '',
   }
 
   constructor(
     private _authService: AuthService,
     private _router: Router,
+    private _genericService: GenericService
   ) {}
 
   public signUp(): void {

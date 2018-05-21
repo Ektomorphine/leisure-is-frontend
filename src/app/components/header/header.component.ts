@@ -17,9 +17,7 @@ export class HeaderComponent implements OnInit {
     private _authService: AuthService,
     private _genericService: GenericService,
     private _router: Router,
-  ) {
-    this.isUserLoggedIn = this._genericService.isSigned;
-  }
+  ) {}
 
   ngOnInit() {}
 
@@ -31,6 +29,10 @@ export class HeaderComponent implements OnInit {
 
   public goToProfile(): void {
     this._router.navigate(['/profile']);
+  }
+
+  public get isSignedIn(): boolean {
+    return this._authService.isSignedIn;
   }
 
 }

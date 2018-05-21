@@ -4,7 +4,7 @@
       Информационная система досугового центра
     </span>
     <button mat-button
-            *ngIf="_genericService.isSigned"
+            *ngIf="isSignedIn"
             class="logout-btn"
             (click)="signOut()">
       Выйти

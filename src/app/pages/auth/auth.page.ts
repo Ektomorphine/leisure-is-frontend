@@ -33,7 +33,7 @@ export class AuthPage implements OnInit {
           },
           error => {
             console.log('error:', error);
-            this._snackBar.open('Неверные логин или пароль', 'Ошибка', {
+            this._snackBar.open(error.errors[0], 'Ошибка', {
               duration: 2000,
             })
           }
