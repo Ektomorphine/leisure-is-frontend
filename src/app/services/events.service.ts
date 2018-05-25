@@ -26,8 +26,8 @@ export class EventsService {
           .subscribe((response: any) => {
             observer.next(response);
             observer.complete();
-          })
-    })
+          });
+    });
   }
 
   public addBookmark(eventId: number, userId: number): Observable<any> {

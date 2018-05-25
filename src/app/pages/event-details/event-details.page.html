@@ -27,6 +27,32 @@
       <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
     </button>
   </mat-card>
+
+  <mat-card class="comments-container">
+    <h2>Комментарии</h2>
+    <hr>
+    <div class="comment" *ngFor="let comment of comments">
+      <mat-card class="comments-card">
+        <div class="user-comments-header">
+            {{comment.user.name}}
+            <span class="user-comments-email">
+              {{comment.user.email}}
+            </span>
+        </div>
+        <div class="comments-text">
+            {{comment.text}}
+        </div>
+      </mat-card>
+    </div>
+    <mat-form-field class="comments-input-fullwd">
+      <textarea matInput placeholder="Оставьте комментарий" #comment></textarea>
+    </mat-form-field>
+    <button mat-raised-button
+            color="primary"
+            (click)="sendComment(comment.value); comment.value = ''">
+      Отправить
+    </button>
+  </mat-card>
 </div>
 
 <button
@@ -36,3 +62,9 @@
   <mat-icon aria-label="Example icon-button with a heart icon">class</mat-icon>
 </button>
 
+<button
+  mat-fab
+  class="back-button"
+  [routerLink]="['/events']">
+  <mat-icon aria-label="Example icon-button with a heart icon">arrow_back</mat-icon>
+</button>

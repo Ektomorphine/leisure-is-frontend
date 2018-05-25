@@ -11,7 +11,7 @@ import { BookmarkService } from '../../services/bookmark.service';
   templateUrl: './user-profile.page.html',
   styleUrls: ['./user-profile.page.scss']
 })
-export class UserProfilePage {
+export class UserProfilePage implements OnInit {
   public currentUser: ICurrentUser;
   public bookmarks = [];
 

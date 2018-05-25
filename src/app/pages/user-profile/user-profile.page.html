@@ -3,8 +3,7 @@
   <mat-card class="example-card">
     <mat-card-header>
       <div mat-card-avatar class="header-image">
-        <img src="https://picsum.photos/200"
-             alt="avatar">
+        <img src="https://picsum.photos/200" alt="avatar">
       </div>
       <mat-card-title>{{currentUser.email}}</mat-card-title>
       <mat-card-subtitle>{{currentUser.name}}</mat-card-subtitle>
@@ -21,24 +20,26 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
 
-    <div *ngFor="let bookmark of bookmarks" class="bookmarks-panel">
-      <button mat-raised-button
-              color="accent"
-              class="bookmark-button"
-              [routerLink]="['/event', bookmark.id]">
-        {{bookmark.name}}
-      </button>
-      <div class="delete-icon" (click)="deleteBookmark(bookmark.id)">
-        <mat-icon>delete</mat-icon>
+    <ng-container *ngIf="bookmarks.length; else elseTemplate">
+      <div *ngFor="let bookmark of bookmarks" class="bookmarks-panel">
+        <button mat-raised-button color="accent" class="bookmark-button" [routerLink]="['/event', bookmark.id]">
+          {{bookmark.name}}
+        </button>
+        <div class="delete-icon" (click)="deleteBookmark(bookmark.id)">
+          <mat-icon>delete</mat-icon>
+        </div>
       </div>
-    </div>
+    </ng-container>
+    <ng-template #elseTemplate>
+      Нет избранных закладок
+    </ng-template>
+
+
+
   </mat-expansion-panel>
 
 </div>
 
-<button
-  mat-fab
-  class="to-events-button"
-  (click)="toEventsList()">
+<button mat-fab class="to-events-button" (click)="toEventsList()">
   <mat-icon aria-label="Example icon-button with a heart icon">class</mat-icon>
 </button>

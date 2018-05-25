@@ -9,5 +9,11 @@
             (click)="signOut()">
       Выйти
     </button>
+    <button mat-button
+            *ngIf="isSignedIn"
+            class="profile-btn"
+            [routerLink]="['/profile']">
+      Профиль
+    </button>
   </mat-toolbar-row>
 </mat-toolbar>

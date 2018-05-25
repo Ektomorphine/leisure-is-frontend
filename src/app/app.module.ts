@@ -23,6 +23,7 @@ import { AuthService } from './services/auth.service';
 import { GenericService } from './services/generic.service';
 import { EventsService } from './services/events.service';
 import { BookmarkService } from './services/bookmark.service';
+import { CommentsService } from './services/comments.service';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { BookmarkService } from './services/bookmark.service';
     GenericService,
     EventsService,
     BookmarkService,
+    CommentsService,
   ],
   bootstrap: [AppComponent]
 })

@@ -4,6 +4,7 @@ import { EventsService } from '../../services/events.service';
 import { GenericService } from '../../services/generic.service';
 import { ICurrentUser } from '../../models/current-user.model';
 import { MatSnackBar } from '@angular/material';
+import { CommentsService } from '../../services/comments.service';
 
 @Component({
   selector: 'app-event-details',
@@ -24,27 +25,35 @@ export class EventDetailsPage implements OnInit {
     hour: 'numeric',
     minute: 'numeric',
   };
+  public comments = [];
 
-  constructor (
+  constructor(
     private _activeRoute: ActivatedRoute,
     private _eventsService: EventsService,
     private _genericService: GenericService,
     private _router: Router,
     private _snackBar: MatSnackBar,
+    private _commentsService: CommentsService,
   ) {
     this.currentUser = JSON.parse(this._genericService.getUser());
-    this._activeRoute.params.subscribe(param => {
-      this._eventsService.getEvent(param.id).subscribe(response => {
-        this.event = response;
-        this.lat = response.coord_y;
-        this.lng = response.coord_x;
-        this.date = new Date(response.date).toLocaleString('ru', this._options);
-      });
-    })
+    this.getEvent();
   }
 
   ngOnInit(): void {
     console.log('current user:', this.currentUser);
+  }
+
+  public getEvent(): void {
+    this._activeRoute.params.subscribe(param => {
+      this._eventsService.getEvent(param.id).subscribe(response => {
+        const event = response.event;
+        this.comments = response.comments;
+        this.event = event;
+        this.lat = event.coord_y;
+        this.lng = event.coord_x;
+        this.date = new Date(event.date).toLocaleString('ru', this._options);
+      });
+    });
   }
 
   public addToFavorites(): void {
@@ -52,12 +61,23 @@ export class EventDetailsPage implements OnInit {
       .addBookmark(this.event.id, this.currentUser.id).subscribe();
     this._snackBar.open('Добавлено', 'Избранное', {
       duration: 1000,
-    })
+    });
 
   }
 
   public toEventsList(): void {
     this._router.navigate(['/events']);
+  }
+
+  public sendComment(commentText: string): void {
+    const comment = {
+      text: commentText,
+      user_id: this.currentUser.id,
+      event_id: this.event.id
+    };
+    this._commentsService.sendComment(comment).subscribe(res => {
+      this.getEvent();
+    });
   }
 
 }

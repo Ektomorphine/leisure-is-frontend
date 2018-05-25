@@ -46,3 +46,35 @@ agm-map {
   bottom: 4%;
   right: 4%;
 }
+
+.comments-container {
+  margin: 30px 0;
+}
+
+.comments-input-fullwd {
+  width: 100%;
+}
+
+.user-comments-header {
+  display: block;
+  width: 100%;
+  padding: 10px;
+}
+
+.user-comments-email {
+  color: #abaaaa;
+}
+
+.comments-text {
+  padding: 10px;
+}
+
+.comments-card {
+  margin: 10px auto;
+}
+
+.back-button {
+  position: fixed;
+  top: 10%;
+  right: 4%;
+}

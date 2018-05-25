@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ICurrentUser } from '../../models/current-user.model';
 import { AuthService } from '../../services/auth.service';
 import { GenericService } from '../../services/generic.service';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   public currentUser: ICurrentUser;
   public isUserLoggedIn: boolean;
 
@@ -18,8 +18,6 @@ export class HeaderComponent implements OnInit {
     private _genericService: GenericService,
     private _router: Router,
   ) {}
-
-  ngOnInit() {}
 
   public signOut(): void {
     this._authService.signOut().subscribe(res => {
@@ -34,5 +32,4 @@ export class HeaderComponent implements OnInit {
   public get isSignedIn(): boolean {
     return this._authService.isSignedIn;
   }
-
 }
