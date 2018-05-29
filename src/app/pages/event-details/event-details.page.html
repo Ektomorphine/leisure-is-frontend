@@ -42,6 +42,9 @@
         <div class="comments-text">
             {{comment.text}}
         </div>
+        <div *ngIf="comment.user.id === currentUser.id" class="delete-icon" (click)="deleteComment(comment.id)">
+          <mat-icon>delete</mat-icon>
+        </div>
       </mat-card>
     </div>
     <mat-form-field class="comments-input-fullwd">

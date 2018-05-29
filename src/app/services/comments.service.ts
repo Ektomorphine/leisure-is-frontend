@@ -16,7 +16,18 @@ export class CommentsService {
         .subscribe(response => {
           observer.next(response);
           observer.complete();
-          console.log(response);
+      });
+    });
+  }
+
+  public deleteComment(commentId: number): Observable<any> {
+    console.log(commentId)
+    return Observable.create((observer: Observer<any>) => {
+      return this._http
+        .delete(`http://localhost:3000/api/v1/comments/${commentId}`)
+        .subscribe(response => {
+          observer.next(response);
+          observer.complete();
       });
     });
   }

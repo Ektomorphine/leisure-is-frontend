@@ -80,4 +80,16 @@ export class EventDetailsPage implements OnInit {
     });
   }
 
+  public deleteComment(commentId: number): void {
+    this._commentsService
+      .deleteComment(commentId)
+      .subscribe(() => {
+        this.comments.forEach((comment, index) => {
+          if (comment.id = commentId) {
+            this.comments.splice(index, 1);
+          }
+        })
+      });
+  }
+
 }

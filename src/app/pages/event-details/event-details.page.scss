@@ -28,12 +28,12 @@ agm-map {
   height: 300px;
   width: 100%;
 }
+
 .price-and-date {
   position: absolute;
   top: 50px;
   left: 50px;
 }
-
 
 .add-to-favorites-button {
   position: absolute;
@@ -71,10 +71,19 @@ agm-map {
 
 .comments-card {
   margin: 10px auto;
+  position: relative;
 }
 
 .back-button {
   position: fixed;
   top: 10%;
   right: 4%;
+}
+
+.delete-icon {
+  position: absolute;
+  right: 0px;
+  top: 0;
+  margin: 10px;
+  cursor: pointer;
 }
