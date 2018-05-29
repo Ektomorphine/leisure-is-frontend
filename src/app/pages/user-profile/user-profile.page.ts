@@ -37,7 +37,6 @@ export class UserProfilePage implements OnInit {
   }
 
   public deleteBookmark(bookmarkId: number): void {
-    console.log(bookmarkId, this.currentUser.id);
     this.bookmarks.forEach((bookmark, index) => {
       if (bookmark.id = bookmarkId) {
         this.bookmarks.splice(index, 1);
@@ -45,9 +44,7 @@ export class UserProfilePage implements OnInit {
     })
     this._bookmarkService
       .deleteBookmark(this.currentUser.id, bookmarkId)
-      .subscribe(response => {
-        console.log(response);
-      })
+      .subscribe()
   }
 
 }

@@ -45,7 +45,6 @@ export class AuthService {
   }
 
   public signUp(user): Observable<any> {
-    console.log(user.image)
     return Observable.create((observer: any) => {
       return this._tokenService.registerAccount({
         email: user.login,
@@ -54,7 +53,6 @@ export class AuthService {
         name: user.name,
         image: user.image,
       }).subscribe(response => {
-        console.log('reg res', response);
         observer.next(response);
         observer.complete();
       })

@@ -21,7 +21,6 @@ export class CommentsService {
   }
 
   public deleteComment(commentId: number): Observable<any> {
-    console.log(commentId)
     return Observable.create((observer: Observer<any>) => {
       return this._http
         .delete(`http://localhost:3000/api/v1/comments/${commentId}`)

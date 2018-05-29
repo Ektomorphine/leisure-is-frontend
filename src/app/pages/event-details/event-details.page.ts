@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EventsService } from '../../services/events.service';
 import { GenericService } from '../../services/generic.service';
@@ -11,7 +11,7 @@ import { CommentsService } from '../../services/comments.service';
   templateUrl: './event-details.page.html',
   styleUrls: ['./event-details.page.scss']
 })
-export class EventDetailsPage implements OnInit {
+export class EventDetailsPage {
 
   public event;
   public lat: number;
@@ -37,10 +37,6 @@ export class EventDetailsPage implements OnInit {
   ) {
     this.currentUser = JSON.parse(this._genericService.getUser());
     this.getEvent();
-  }
-
-  ngOnInit(): void {
-    console.log('current user:', this.currentUser);
   }
 
   public getEvent(): void {
